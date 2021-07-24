@@ -11,18 +11,18 @@
 #include <unordered_map>
 #include <tuple>
 
-#include <OGRE/Ogre.h>
-#include <OGRE/Compositor/OgreCompositorManager2.h>
-#include <OGRE/Compositor/OgreCompositorWorkspace.h>
-#include <OGRE/OgreMeshManager2.h>
-#include <OGRE/OgreMeshManager.h>
-#include <OGRE/OgreMesh2.h>
-#include <OGRE/OgreMesh.h>
-#include <OGRE/OgreItem.h>
-#include <OGRE/OgreHlms.h>
-#include <OGRE/OgreHlmsManager.h>
-#include <OGRE/Hlms/Pbs/OgreHlmsPbs.h>
-#include <OGRE/Hlms/Unlit/OgreHlmsUnlit.h>
+#include <Ogre.h>
+#include <Compositor/OgreCompositorManager2.h>
+#include <Compositor/OgreCompositorWorkspace.h>
+#include <OgreMeshManager2.h>
+#include <OgreMeshManager.h>
+#include <OgreMesh2.h>
+#include <OgreMesh.h>
+#include <OgreItem.h>
+#include <OgreHlms.h>
+#include <OgreHlmsManager.h>
+#include <Hlms/Pbs/OgreHlmsPbs.h>
+#include <Hlms/Unlit/OgreHlmsUnlit.h>
 
 //Necessary on Non windows platform :
 #ifndef _WIN32

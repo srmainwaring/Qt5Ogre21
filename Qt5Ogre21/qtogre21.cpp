@@ -42,7 +42,7 @@ QtOgre21::QtOgre21(RenderAPI API, Ogre::String HlmsLibraryPath) :
 #ifdef QT_DEBUG
         root->loadPlugin("./RenderSystem_GL3Plus_d");
 #else
-        root->loadPlugin("./RenderSystem_GL3Plus");
+        root->loadPlugin("/usr/local/opt/ogre2.1/lib/OGRE-2.1/OGRE/RenderSystem_GL3Plus");
 #endif
         renderSystem = root->getRenderSystemByName(GL3PLUS_RENDERSYSTEM);
         shadingLanguage = "GLSL";

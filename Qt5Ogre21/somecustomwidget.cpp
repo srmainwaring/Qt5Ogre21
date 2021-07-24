@@ -1,6 +1,7 @@
 #include "somecustomwidget.h"
 
-SomeCustomWidget::SomeCustomWidget(QWidget *parent) : QWidget(parent)
+SomeCustomWidget::SomeCustomWidget(QWidget *parent) :
+    QWidget(parent)
 {
     setWindowTitle("Some Window");
     setMinimumSize(100, 100);

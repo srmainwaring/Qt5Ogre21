@@ -14,10 +14,10 @@ public:
     /// If there's no created scene and the index is 0, will automatically create the 1st scene manager
     QOgreViewport(size_t SceneManagerIndex = 0, QWidget *parent = 0);
 
-    ~QOgreViewport();
+    virtual ~QOgreViewport();
 
     ///Neutralize the paintEngine by returning nullptr
-    QPaintEngine* paintEngine() const {return nullptr;}
+    QPaintEngine* paintEngine() const override { return nullptr; }
 
     ///When the widget is repainted
     virtual void paintEvent(QPaintEvent *event) override;

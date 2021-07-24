@@ -2,14 +2,16 @@
 
 size_t QOgreViewport::windowNumber{0};
 
-QOgreViewport::QOgreViewport(size_t SceneManagerIndex, QWidget *parent)
-    : QWidget(parent),
-      smgrIndex{SceneManagerIndex},
-      Window{nullptr}
+QOgreViewport::QOgreViewport(size_t SceneManagerIndex, QWidget *parent) :
+    QWidget(parent),
+    smgrIndex{SceneManagerIndex},
+    Window{nullptr}
 {
     //We need QtOgre21 to exist
     if(!QtOgre21::instance())
+    {
         throw std::runtime_error("Cannot create QOgreViewport widgets if QtOgre21 is not initialized!");
+    }
 
     //Permit Ogre to draw manually on that window
     setAttribute(Qt::WA_OpaquePaintEvent);

@@ -14,7 +14,8 @@ int main(int argc, char *argv[])
     QtOgre21 qtOgre(QtOgre21::RenderAPI::OpenGL);
 
     //Create the widget
-    SomeCustomWidget widget; widget.show();
+    SomeCustomWidget widget;
+    widget.show();
     auto w = widget.w;
     auto w2 = widget.w2;
 
