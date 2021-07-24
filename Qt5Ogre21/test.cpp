@@ -11,7 +11,8 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     //Initialize the QtOgre system
-    QtOgre21 qtOgre(QtOgre21::RenderAPI::OpenGL);
+    QtOgre21 qtOgre(QtOgre21::RenderAPI::OpenGL,
+        "/Users/rhys/Code/ogre/Qt5Ogre21/testMedia/");
 
     //Create the widget
     SomeCustomWidget widget;
@@ -20,7 +21,9 @@ int main(int argc, char *argv[])
     auto w2 = widget.w2;
 
     //Resource locations
-    Ogre::ResourceGroupManager::getSingleton().addResourceLocation(".", "FileSystem");
+    Ogre::ResourceGroupManager::getSingleton().addResourceLocation(
+        "/Users/rhys/Code/ogre/Qt5Ogre21/testMedia",
+        "FileSystem");
 
     //HighLevelMaterialSystem shader libraries
     qtOgre.declareHlmsLibrary();

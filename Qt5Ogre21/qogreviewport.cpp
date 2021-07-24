@@ -26,6 +26,15 @@ QOgreViewport::QOgreViewport(size_t SceneManagerIndex, QWidget *parent) :
     misc["vsync"] = "false";
     misc["externalWindowHandle"] = std::to_string(winId());
 
+    // TODO_MACOS
+    misc["FSAA"] = "0";
+    misc["border"] = "none";
+    misc["contentScalingFactor"] = "1.0";
+    misc["externalWindowHandle"] = "0";
+    misc["gamma"] = "true";
+    misc["macAPICocoaUseNSView"] = "true";
+    misc["stereoMode"] = "Frame Sequential ";
+
     //This permit to handle some weirdness on window creations
     QtOgre21::instance()->willCreateWindowHint();
 
@@ -38,7 +47,9 @@ QOgreViewport::QOgreViewport(size_t SceneManagerIndex, QWidget *parent) :
             misc["externalGLContext"] = std::to_string(size_t(context));
 
     //Create the RenderWindow
-    Window = Ogre::Root::getSingleton().createRenderWindow(std::string("Window") + std::to_string(windowNumber++), width(), height(), false, &misc);
+    Window = Ogre::Root::getSingleton().createRenderWindow(
+        std::string("Window") + std::to_string(windowNumber++),
+        width(), height(), false, &misc);
 
     //We have to do this callback. This initialize the scene and the compositor for the rendering, and return a bunch of pointers in a tuple
     auto result = QtOgre21::instance()->WidgetCreatedCallback(Window, SceneManagerIndex);
