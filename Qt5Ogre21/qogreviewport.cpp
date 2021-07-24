@@ -27,7 +27,7 @@ QOgreViewport::QOgreViewport(size_t SceneManagerIndex, QWidget *parent) :
     misc["externalWindowHandle"] = std::to_string(winId());
 
     // TODO_MACOS
-    misc["FSAA"] = "0";
+    // misc["FSAA"] = "0";
     misc["border"] = "none";
     misc["contentScalingFactor"] = "1.0";
     misc["externalWindowHandle"] = "0";
