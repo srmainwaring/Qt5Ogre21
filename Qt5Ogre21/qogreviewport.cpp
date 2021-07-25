@@ -24,13 +24,14 @@ QOgreViewport::QOgreViewport(size_t SceneManagerIndex, QWidget *parent) :
     Ogre::NameValuePairList misc;
     misc["FSAA"] = std::to_string(QtOgre21::instance()->getAALevel());
     misc["vsync"] = "false";
-    misc["externalWindowHandle"] = std::to_string(winId());
+    // misc["externalWindowHandle"] = std::to_string(winId());
+    misc["parentWindowHandle"] = std::to_string(winId());
 
     // TODO_MACOS
     // misc["FSAA"] = "0";
     misc["border"] = "none";
     misc["contentScalingFactor"] = "1.0";
-    misc["externalWindowHandle"] = "0";
+    // misc["externalWindowHandle"] = "0";
     misc["gamma"] = "true";
     misc["macAPICocoaUseNSView"] = "true";
     misc["stereoMode"] = "Frame Sequential ";
@@ -88,7 +89,7 @@ void QOgreViewport::paintEvent(QPaintEvent *event)
     //Call the refresh of Ogre when the viewport's window is called
     //qDebug() << "paint event";
     Ogre::Root::getSingleton().renderOneFrame();
-    Window->windowMovedOrResized();
+    // Window->windowMovedOrResized();
 
     event->accept();
 }
@@ -96,27 +97,27 @@ void QOgreViewport::paintEvent(QPaintEvent *event)
 //Tell Ogre the window has been resized and redraw
 void QOgreViewport::resizeEvent(QResizeEvent *event)
 {
-    QWidget::resizeEvent(event);
-    if(event->isAccepted())
-    {
-        Window->windowMovedOrResized();
-#if OGRE_PLATFORM == OGRE_PLATFORM_LINUX
-        //Need to override the actual size of the window, for some reason. Only on Linux.
-        Window->resize(width(), height());
-#endif
-        this->update();
-    }
+//     QWidget::resizeEvent(event);
+//     if(event->isAccepted())
+//     {
+//         Window->windowMovedOrResized();
+// #if OGRE_PLATFORM == OGRE_PLATFORM_LINUX
+//         //Need to override the actual size of the window, for some reason. Only on Linux.
+//         Window->resize(width(), height());
+// #endif
+//         this->update();
+//     }
 }
 
 //Same as above, but for movement.
 void QOgreViewport::moveEvent(QMoveEvent *event)
 {
-    QWidget::moveEvent(event);
-    if(event->isAccepted())
-    {
-        Window->windowMovedOrResized();
-        this->update();
-    }
+    // QWidget::moveEvent(event);
+    // if(event->isAccepted())
+    // {
+    //     Window->windowMovedOrResized();
+    //     this->update();
+    // }
 }
 
 //Return the camera of this viewport
